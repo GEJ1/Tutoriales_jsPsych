@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>My experiment</title>
+<script src="jspsych/jspsych.js"></script>                   <script src="jspsych/plugins/jspsych-html-keyboard-response.js"></script>
+<script src="jspsych/plugins/jspsych-html-slider-response.js"></script>
+<script src="jspsych/plugins/jspsych-cloze.js"></script>
+<link href="jspsych/css/jspsych.css" rel="stylesheet" type="text/css"></link>
+    </head>
+    <body></body>
+    <script>
+//Creamos el array que contendra nuestros trials
+    timeline_array = [];
+    
+//Creamos un objeto con nuestro primer trial saludando.
+var trial_hola = {
+        type: 'html-keyboard-response',
+        stimulus: 'Hola mundo!'
+    }
+//Creamos un objeto con nuestro segundo trial para la tarea de completar una oración.
+var trial_cloze = {
+     type: 'cloze',
+     text: 'En casa de %% cuchillo de %%.'
+     };
+//Creamos un objeto con nuestro segundo trial para responder mediante una barra deslizante.
+var slider_trial = {
+        type: 'html-slider-response',
+        stimulus: '<p>Te gustó el tutorial?</p>',
+        labels: ['Para Nada', 'Muchísimo!'],
+        prompt: "<p>Presioná el botón para pasar al siquiente trial</p>",
+        button_label: "Continuar"
+     };
+// Agregamos nuestros trials a timeline_array
+    timeline_array.push(trial_hola);
+    timeline_array.push(slider_trial);
+    timeline_array.push(trial_cloze);
+
+
+jsPsych.init({ 
+     timeline: timeline_array,
+     on_finish: function(){
+                jsPsych.data.displayData()
+     }
+})
+</script>
+</html>
