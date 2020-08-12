@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>My experiment</title>
+        <title>Mi experimento</title>
 
 <script src="jspsych/jspsych.js"></script>                   
 <script src="jspsych/plugins/jspsych-html-keyboard-response.js"></script>
@@ -14,17 +14,17 @@
 //Creamos el array que contendra nuestros trials
     timeline_array = [];
     
-//Creamos un objeto con nuestro PRIMER trial saludando.
+//Creamos un objeto con nuestro primer trial saludando.
 var trial_hola = {
         type: 'html-keyboard-response',
         stimulus: 'Hola mundo!'
     }
-//Creamos un objeto con nuestro SEGUNDO trial para la tarea de completar una oración.
+//Creamos un objeto con nuestro segundo trial para la tarea de completar una oración.
 var trial_cloze = {
      type: 'cloze',
      text: 'En casa de %% cuchillo de %%.'
      };
-//Creamos un objeto con nuestro TERCER trial para responder mediante una barra deslizante.
+//Creamos un objeto con nuestro segundo trial para responder mediante una barra deslizante.
 var slider_trial = {
         type: 'html-slider-response',
         stimulus: '<p>Te gustó el tutorial?</p>',
@@ -34,14 +34,14 @@ var slider_trial = {
      };
 // Agregamos nuestros trials a timeline_array
     timeline_array.push(trial_hola);
-    timeline_array.push(slider_trial);
     timeline_array.push(trial_cloze);
+    timeline_array.push(slider_trial);
 
-// Iniciamos el experimento
+
 jsPsych.init({ 
      timeline: timeline_array,
      on_finish: function(){
-                jsPsych.data.displayData() 
+                jsPsych.data.displayData()
      }
 })
 </script>
